@@ -110,5 +110,6 @@ Detailing of structure of Application
      http://localhost:3000/employees
  ```
 #### Application Screenshots
-:::image type="content" source="img/employee-list.png" alt-text="EmployeeList":::
-:::image type="content" source="img/add-employee.png" alt-text="AddEmployee":::
+![Screenshot](img/employee-list.png)
+
+![Screenshot](img/add-employee.png)
