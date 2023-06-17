@@ -29,7 +29,7 @@ Detailing of structure of Application
 ```  
   * Maven 
     ```
-        wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+        wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
         tar -xvf apache-maven-3.8.8-bin.tar.gz
         mv apache-maven-3.8.8 /opt/
     ```
@@ -86,11 +86,11 @@ Detailing of structure of Application
  - `application.properties` file under `springboot-backend/src/main/resources/application.properties` contains details of `DB` . Have to update the username , password that we have created above.
  #### Maven package init
  - `pom.xml` under the java project folder `springboot-backend` contains all the package and its dependencies, to install them all we use maven tool
- - `mvn clean install` must be executed from parent folder `springboot-backend` 
+ - `mvn clean ` must be executed from parent folder `springboot-backend` 
  #### Build the backend
  - Post the package installation is done , we have to build and package the application so that it can be executed as a process and serve the backend service 
   
- - `mvn run build` is the command to build and package the application . This will generate a `target` folder under `springboot-backend`  and `*.jar` file will be generated
+ - `mvn install` is the command to build and package the application . This will generate a `target` folder under `springboot-backend`  and `*.jar` file will be generated
   
  - Generated `jar` file is the packaged application and that can be executed by `java` or any webservers like `tomcat` . By default the application runs on port `8080`
   
