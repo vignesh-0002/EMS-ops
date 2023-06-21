@@ -73,7 +73,7 @@ provider "aws" {
   ```
 
  ### 3. Build As-Is
- #### Initialize 
+ #### - - Initialize 
 - This step is to initialise the terafform working directory by issing `terraform init` command.
 - This stage will 
   - create a directory named `.terraform`
@@ -82,7 +82,7 @@ provider "aws" {
 terraform inir
 ```
 
- #### Format & Validate
+ #### - - Format & Validate
  - This stage will
    - correct the lint issues
    - validate the correctness of terraform syntax and dependencies used
@@ -91,13 +91,13 @@ terraform inir
      terraform validate
   ```
   
- #### Plan the infrastructure
+ #### - Plan the infrastructure
  - This stage will
    - generates the visual output on the console to describe what are all the resources that will be created in target
 ```
 terraform plan
 ```  
- #### Apply the infrastructure
+ #### - Apply the infrastructure
  - This stage will
    - creates the resources to target as per what had been shown in the plan output
 ```
@@ -108,28 +108,28 @@ terraform apply
 - capture the values of the output post terraform apply
 - 
  ### 4. Change the AMI
- #### Find & Change the AMI ID
+ #### - Find & Change the AMI ID
 - Find the AMI Id of Ubuntu 20.04 LTS on the region `us-east-1`
 - Change the value of AMI Id on `main.tf` file
 
- #### Observe the Change
+ #### - Observe the Change
 - Apply the changes in the infrastructure using `terrform apply`
 - capture the values of the output post terraform apply
 
 ### 5. Change the Value of a variable
- #### Find & Change value of a variable
+ #### - Find & Change value of a variable
  - change the value of `environment` variable from `variables.tf` file
 - Apply the changes in the infrastructure using `terrform apply`
 - capture the values of the output post terraform apply
 ### 6. Add a new variable
- #### Add a new vairable
+ #### - Add a new vairable
  - add a new variable named `creation_time` in `variables.tf` file
  - create a new tag ID `CreationTime` in `main.tf` and refer the variable `creation_time`
   - Apply the changes in the infrastructure using `terrform apply`
 - capture the values of the output post terraform apply
   
 ### 7. Use Locals
- #### Auto-Generate a Value
+ #### - Auto-Generate a Value
  - auto generate the value of variable `creation_time` using locals
  - create a new file named `locals.tf`
  - declare a locals block in that file
@@ -148,7 +148,7 @@ locals {
 }
 ```
  ### 8. Use Data Source
- #### Use data source to fetch AMI ID
+ #### - Use data source to fetch AMI ID
  - create a file named `data.tf`
  - add a data source block to get the AMI ID for `ubuntu 20.04 LTS`
  - replace the value of AMI Id on `main.tf` file from string to reference of data source
@@ -180,13 +180,13 @@ resource "aws_instance" "ems_ops" {
   ami           = data.aws_ami.ubuntu_20_04.id
 ```
  ### 9. Add AWS Profile
- #### Add AWS Profile to the terminal
+ #### - Add AWS Profile to the terminal
  - add AWS profile to the terminal from where the terraform is executed
  - use AWS CLI to setup the profile in terminal, use the following command and fill up the ID and Key
   ```
   aws configure --profile ems-dev
   ```
- #### Add AWS Profile to the terraform
+ #### - Add AWS Profile to the terraform
  - add the profile to `provider` block  in `terraform.tf` file
  - export the AWS profle in the terminal before running the terraform apply
  -  Apply the changes in the infrastructure using `terrform apply`
@@ -202,7 +202,16 @@ provider "aws" {
 }
 ```
  ### 10. Get new output value
- #### Add a new output block
+ #### - Add a new output block
  - add a new output block for `Availability Zone` of the created instance in the `outputs.tf` file
  -  Apply the changes in the infrastructure using `terrform apply`
 - capture the values of the output post terraform apply
+
+ ### 11. Understand State
+ #### - Look at the terraform state file created
+ - `.terraform.tfstate` is the file that holds all the infrastructure details and metadata
+
+ ### 12. Destroy All
+ #### - Destroy the infrastructure
+ - reun `terraform destroy` to destroy all the resources created by the terraform code.
+
