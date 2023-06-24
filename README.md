@@ -1,4 +1,4 @@
-# Full Stack Web Application - Phase 2
+# Full Stack Web Application - Phase 3
 In this section, we will learn how to build the basic Infrastructure
 
 This phase includes
