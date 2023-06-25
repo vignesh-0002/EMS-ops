@@ -1,28 +1,16 @@
 variable "environment" {
-  description = "Detup the environment name of the infra resource belongs to"
+  description = "Setup the environment name of the infra resource belongs to"
   type        = string
   default     = "dev"
 }
-variable "creation_time" {
-  type = string
-  description = "creation date of the instance"
-  default = "test123"
+variable "tags" {
+  type        = map(string)
+  default     = {}
 }
-variable "subnet_outer_offsets" {
-  type        = list(number)
-  default     = [ 1,1 ]
+variable "name" {
+  default = "ems"
 }
 
-variable "subnet_inner_offsets" {
-  type        = list(number)
-  default     = [ 1, 1 ]
+variable "vpc_cidr" {
+  default = "10.0.0.0/16"
 }
-
-variable "nat_per_az" {
-  default = false
-}
-
-locals {
-  nat_count = var.nat_per_az ? length(local.subnet_list[0]) : 1
-}
-

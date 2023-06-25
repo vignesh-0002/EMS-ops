@@ -1,7 +1,10 @@
+locals {
+  allow_cidrs_default = merge(var.allow_cidrs_default, { self = aws_vpc.main.cidr_block})
+  subnet_list         = [ for cidr_block in cidrsubnets(var.cidr, var.subnet_outer_offsets...) : cidrsubnets(cidr_block, var.subnet_inner_offsets...) ]
+}
 
-# VPC 
 resource "aws_vpc" "main" {
-  cidr_block           = "10.1.0.0/16"
+  cidr_block           = var.cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
 
@@ -13,7 +16,7 @@ resource "aws_vpc" "main" {
     var.tags
   )
 }
-# Internet Gateway
+
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
@@ -25,7 +28,7 @@ resource "aws_internet_gateway" "main" {
     var.tags
   )
 }
-# Elastic IP
+
 resource "aws_eip" "nat" {
   vpc   = true
   count = local.nat_count
@@ -38,7 +41,7 @@ resource "aws_eip" "nat" {
     var.tags
   )
 }
-# Nat Gateway
+
 resource "aws_nat_gateway" "main" {
   allocation_id = element(aws_eip.nat.*.id, count.index)
   count         = local.nat_count
@@ -52,7 +55,7 @@ resource "aws_nat_gateway" "main" {
     var.tags
   )
 }
-# Default Security Group
+
 resource "aws_default_security_group" "default" {
   vpc_id                 = aws_vpc.main.id
   revoke_rules_on_delete = true
