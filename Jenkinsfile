@@ -23,7 +23,10 @@ pipeline {
                 // Build your application here (e.g., compile, package, etc.)
                 sh '''
                 ls
-                echo "In Build Step"
+                sudo apt update
+                sudo apt install openjdk-17-jdk openjdk-17-jre                
+
+
                 '''
             }
         }
