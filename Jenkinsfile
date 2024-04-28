@@ -25,7 +25,22 @@ pipeline {
                 ls
                
                 sudo apt install openjdk-17-jdk openjdk-17-jre -y              
+                 
+                wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
 
+                tar -xvf apache-maven-3.8.8-bin.tar.gz
+
+                sudo mv apache-maven-3.8.8 /opt/
+
+                sudo cat <<EOF >> ~/.profile 
+                          M2_HOME='/opt/apache-maven-3.8.8'
+                          PATH="\$M2_HOME/bin:\$PATH"
+                          export PATH
+                           EOF
+
+                source ~/.profile
+
+                mvn -v
 
                 '''
             }
