@@ -28,11 +28,7 @@ pipeline {
                     node  -v && npm -v
                     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
                     export NVM_DIR="$HOME/.nvm"
-   
-                    if (new File("$NVM_DIR/nvm.sh").exists()) {
-                    def process = "source $NVM_DIR/nvm.sh".execute()
-                    process.waitFor()
-    
+                    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
                    nvm --version
                    nvm install 14                    
        '''
