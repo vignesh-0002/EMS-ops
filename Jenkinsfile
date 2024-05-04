@@ -21,6 +21,7 @@ pipeline {
             steps{
                 directory (react-hooks-frontend){
                     sh '''
+                    ls
                      def nodeVersion = '14'
 
 // Install NVM if not already installed
