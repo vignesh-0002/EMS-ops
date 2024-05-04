@@ -21,20 +21,21 @@ pipeline {
             steps{
                 directory (react-hooks-frontend){
                     sh '''
-                     sudo apt -y install nodejs 
-                     sudo apt install npm -y
-                     node  -v && npm -v
-                     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-                     export NVM_DIR="$HOME/.nvm"
+                     def nodeVersion = '14'
 
-                    if (new File("$NVM_DIR/nvm.sh").exists()) {
-                    def process = "source $NVM_DIR/nvm.sh".execute()
-                    process.waitFor()
-                    }
-                    
-                    nvm --version
-                    nvm install 14
-                   ls
+// Install NVM if not already installed
+if (!new File("~/.nvm").exists()) {
+    println("Installing NVM...")
+    "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash".execute().waitFor()
+    println("NVM installed.")
+}
+
+// Install Node.js version 14 using NVM
+println("Installing Node.js version ${nodeVersion}...")
+def nvmCommand = "/bin/bash -c '. ~/.nvm/nvm.sh && nvm install ${nodeVersion}'"
+nvmCommand.execute().waitFor()
+println("Node.js version ${nodeVersion} installed.")
+
        '''
            }
           }
