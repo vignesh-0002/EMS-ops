@@ -19,13 +19,13 @@ pipeline {
         }
        stage ('nvm installation') {
             steps{
-                directory (react-hooks-frontend){
+               
                     sh '''
                     ls
                      
        '''
-           }
-          }
+           
     }
+}
 }
 }
