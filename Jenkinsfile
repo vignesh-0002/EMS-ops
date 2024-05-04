@@ -31,6 +31,10 @@ pipeline {
                 // For non-Unix systems, you might need to provide appropriate commands
                 echo 'Non-Unix system, skipping Node.js installation.'
             }
+            sh '''
+                nvm --version
+                node -v 
+            '''
         }
     }
 }
