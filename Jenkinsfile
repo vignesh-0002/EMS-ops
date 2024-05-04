@@ -32,7 +32,6 @@ pipeline {
                 echo 'Non-Unix system, skipping Node.js installation.'
             }
             sh '''
-                nvm --version
                 node -v 
             '''
         }
