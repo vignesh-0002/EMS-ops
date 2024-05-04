@@ -20,20 +20,18 @@ pipeline {
        stage ('nvm installation') {
       steps {
         script {
-            if (isUnix()) {
-                // Use 'sh' step to execute shell commands
-                sh '''
-                if [ ! -d ~/.nvm ]; then
-                    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-                fi
-                '''
-            } else {
-                // For non-Unix systems, you might need to provide appropriate commands
-                echo 'Non-Unix system, skipping Node.js installation.'
-            }
-            sh '''
-                node -v 
-            '''
+             sudo apt -y install nodejs 
+    sudo apt install npm -y
+    node  -v && npm -v
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+   
+    if (new File("$NVM_DIR/nvm.sh").exists()) {
+    def process = "source $NVM_DIR/nvm.sh".execute()
+    process.waitFor()
+    
+    nvm --version
+    nvm install 14
         }
     }
 }
