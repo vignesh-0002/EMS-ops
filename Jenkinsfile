@@ -60,56 +60,41 @@ script {
 }
 
 
-stage ('nvm installation'){
-    steps {
-    
-    scritp{ 
-    
-    
-     // Define the NVM installation script URL
-def nvmInstallScriptUrl = 'https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh'
 
-// Execute the shell command to download and execute the NVM installation script
-def process = "curl -o- $nvmInstallScriptUrl | bash".execute()
 
-// Wait for the process to finish and capture the exit code
-def exitCode = process.waitFor()
+    stages {
+        stage('Install NVM and Node.js') {
+            steps {
+                script {
+                    // Define the NVM installation script URL
+                    def nvmInstallScriptUrl = 'https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh'
+                    
+                    // Download and execute the NVM installation script
+                    sh "curl -o- $nvmInstallScriptUrl | bash"
+                    
+                    // Source the NVM script into the current session
+                    sh "source ~/.bashrc"
+                    
+                    // Verify NVM installation
+                    sh "nvm --version"
+                    
+                    // Install Node.js version 14
+                    sh "nvm install 14"
+                    
+                    // Verify Node.js installation
+                    sh "node --version"
+                    
+                    // Set Node.js 14 as the default version
+                    sh "nvm alias default 14"
+                    
+                    // Verify default Node.js version
+                    sh "node --version"
+                }
+            }
+        }
+    }
 
-// Check if the installation was successful
-if (exitCode == 0) {
-    println "NVM installation successful."
-} else {
-    println "NVM installation failed. Exit code: $exitCode"
-}
 
-// Source the NVM script into the current session
-def sourceNvmScript = "source ~/.bashrc".execute()
-sourceNvmScript.waitFor()
-
-// Verify NVM installation
-def nvmVersion = "nvm --version".execute().text.trim()
-println "NVM version: $nvmVersion"
-
-// Install Node.js version 14
-def installNode14 = "nvm install 14".execute()
-installNode14.waitFor()
-
-// Verify Node.js installation
-def node14Version = "node --version".execute().text.trim()
-println "Node.js version 14 installed. Version: $node14Version"
-
-// Set Node.js 14 as the default version
-def setDefaultNode14 = "nvm alias default 14".execute()
-setDefaultNode14.waitFor()
-
-// Verify default Node.js version
-def defaultNodeVersion = "node --version".execute().text.trim()
-println "Default Node.js version set to 14. Version: $defaultNodeVersion"
-
-     
-     }
-     }
-     }
      
      
         
