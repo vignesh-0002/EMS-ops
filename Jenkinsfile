@@ -60,9 +60,6 @@ script {
 }
 
 
-
-
-    stages {
         stage('Install NVM and Node.js') {
             steps {
                 script {
@@ -92,7 +89,7 @@ script {
                 }
             }
         }
-    }
+    
 
 
      
