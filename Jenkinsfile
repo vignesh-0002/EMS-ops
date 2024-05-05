@@ -33,6 +33,7 @@ script {
             }
          sh '''
          node -v
+         nvm -v
          '''
         }
 }
