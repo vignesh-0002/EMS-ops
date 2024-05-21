@@ -49,14 +49,41 @@ steps {
  stage ('daemonizing') {
 steps {
     script {
-        sh''
+        sh'''
     ls
     sudo npm install -g serve 
     sudo mkdir /opt/react-frontend
     cd ../../
     ls
         pwd
+sudo cp -r build /opt/react-frontend
 
+sudo touch /etc/systemd/system/reactapp_ems.service
+
+sudo touch /etc/systemd/system/reactapp_ems.service
+echo "[Unit]
+      Description=StudentsystemApplication React service
+      After=syslog.target network.target
+
+      [Service]
+      SuccessExitStatus=143
+      User=ubuntu 
+     Type=simple
+      Restart=on-failure
+      RestartSec=10
+
+      WorkingDirectory=/opt/react-frontend/
+      ExecStart=serve -s build
+     ExecStop=/bin/kill -15 $MAINPID
+
+      [Install]
+      WantedBy=multi-user.target" yes | sudo tee -a /etc/systemd/system/reactapp_ems.service
+    
+    cat /etc/systemd/system/reactapp_ems.service
+    
+    sudo systemctl daemon-reload
+    sudo systemctl start reactapp_ems.service
+    sudo systemctl status reactapp_ems.service
         '''
     }
 }
