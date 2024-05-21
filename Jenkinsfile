@@ -55,6 +55,7 @@ steps {
     sudo mkdir /opt/react-frontend
     cd ../../
     ls
+        pwd
 sudo cp -r build /opt/react-frontend
 
 sudo touch /etc/systemd/system/reactapp_ems.service
