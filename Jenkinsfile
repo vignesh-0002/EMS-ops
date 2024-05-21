@@ -26,7 +26,7 @@ script {
 
                 // Load nvm
                 sh 'export NVM_DIR="$HOME/.nvm"'
-                sh '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+                sh '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"'
 
                 // Install Node.js 14
                 sh 'nvm install 14'
