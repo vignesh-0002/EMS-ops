@@ -52,7 +52,7 @@ steps {
         sh''
     ls
     sudo npm install -g serve 
-  #  sudo mkdir /opt/react-frontend
+    sudo mkdir /opt/react-frontend
     cd ../../
     ls
 sudo cp -r build /opt/react-frontend
