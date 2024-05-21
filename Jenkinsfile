@@ -21,12 +21,13 @@ pipeline {
       steps {
 script {
             sh '''   
-             
-    
-        sudo apt update
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
-    sudo apt -y install nodejs && npm
-    node  -v && npm -v
+sudo apt update
+sudo apt install nodejs
+sudo apt install npm
+node -v
+npm -v
+sudo apt install build-essential
+
     '''
         }
 }
