@@ -27,12 +27,10 @@ sudo apt install npm
 node -v
 npm -v
 sudo apt install build-essential
-
-nvm install 14
-nvm use 14
-node -v
-nvm alias default 14
-
+sudo nvm install 14
+sudo nvm use 14
+sudo node -v
+sudo nvm alias default 14
     '''
         }
 }
