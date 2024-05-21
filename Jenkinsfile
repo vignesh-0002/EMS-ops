@@ -17,6 +17,14 @@ pipeline {
                 }
             }
         }
-
+   stage ('nvm installation') {
+      steps {
+script {
+            sh '''   
+              choco install nodejs.install --version=14.18.0
+    '''
+        }
+}
+}
 }
 }
