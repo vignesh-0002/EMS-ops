@@ -22,21 +22,7 @@ pipeline {
 script {
             sh '''   
  // Install nvm
-                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash'
-
-                // Load nvm
-                sh 'export NVM_DIR="$HOME/.nvm"'
-                sh '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"'
-
-                // Install Node.js 14
-                sh 'nvm install 14'
-
-                // Use Node.js 14
-                sh 'nvm use 14'
-
-                // Verify Node.js installation
-                sh 'node -v'
-                sh 'npm -v'
+              choco install nodejs.install --version=14.18.0
     '''
         }
 }
