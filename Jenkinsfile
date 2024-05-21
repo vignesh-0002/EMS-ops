@@ -21,10 +21,11 @@ pipeline {
       steps {
 script {
             sh '''   
-                    sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
-                    sh '. ~/.bashrc'                    
-                    sh 'nvm install 14'
-                    sh 'nvm alias default 14'
+         sudo npm cache clean -f
+         sudo npm install -g n
+         sudo n 14
+         node -v
+
     '''
         }
 }
