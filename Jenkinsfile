@@ -21,14 +21,9 @@ pipeline {
       steps {
 script {
             sh '''   
-// Install nvm
                     sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
-                    sh '. ~/.bashrc'
-                    
-                    // Install Node.js 14
+                    sh '. ~/.bashrc'                    
                     sh 'nvm install 14'
-                    
-                    // Set Node.js 14 as default
                     sh 'nvm alias default 14'
     '''
         }
