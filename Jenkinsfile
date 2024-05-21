@@ -46,7 +46,7 @@ steps {
 }
           
       }  
- stage ('daemonizing) {
+ stage ('daemonizing') {
 steps {
     script {
         sh''
