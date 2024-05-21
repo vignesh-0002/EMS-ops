@@ -21,7 +21,15 @@ pipeline {
       steps {
 script {
             sh '''   
-              choco install nodejs.install --version=14.18.0
+// Install nvm
+                    sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
+                    sh '. ~/.bashrc'
+                    
+                    // Install Node.js 14
+                    sh 'nvm install 14'
+                    
+                    // Set Node.js 14 as default
+                    sh 'nvm alias default 14'
     '''
         }
 }
