@@ -25,7 +25,6 @@ script {
          sudo npm install -g n
          sudo n 14
          node -v
-
     '''
         }
 }
@@ -36,7 +35,7 @@ steps {
         sh '''
          cd react-hooks-frontend/src/services 
     
-    sudo perl -pi -e 's/localhost/34.234.118.196/g' EmployeeService.js
+    sudo perl -pi -e 's/localhost/18.207.199.10/g' EmployeeService.js
     
     npm install
     npm run build
