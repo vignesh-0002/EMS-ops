@@ -38,8 +38,7 @@ steps {
     
     sudo perl -pi -e 's/localhost/18.207.199.10/g' EmployeeService.js
     
-    npm install
-    npm run build
+   
     ls
         '''
     }
