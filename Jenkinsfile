@@ -21,6 +21,8 @@ pipeline {
       steps {
 script {
             sh '''   
+         sudo apt install npm -y
+         sudo npm cache clean -f
          sudo npm install -g n
          sudo n 14
          node -v
