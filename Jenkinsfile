@@ -38,7 +38,8 @@ steps {
     
     sudo perl -pi -e 's/localhost/18.207.199.10/g' EmployeeService.js
     
-   
+    npm install
+    npm run build
     ls
         '''
     }
@@ -52,7 +53,9 @@ steps {
     ls
     sudo npm install -g serve 
     ls
-    pwd
+    sudo mkdir /opt/react-frontend
+
+    sudo cp -r build /opt/react-frontend
     
 sudo touch /etc/systemd/system/reactapp_ems.service
 
