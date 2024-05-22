@@ -53,7 +53,6 @@ steps {
     ls
     sudo npm install -g serve 
     ls
-    cd ems-ops
     pwd
     
 sudo touch /etc/systemd/system/reactapp_ems.service
