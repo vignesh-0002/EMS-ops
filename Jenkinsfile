@@ -23,7 +23,9 @@ pipeline {
       steps {
 script {
             sh '''   
+            
          sudo apt update
+         sudo systemctl stop unattended-upgrades
          sudo apt install npm -y
          sudo npm cache clean -f
          sudo npm install -g n
