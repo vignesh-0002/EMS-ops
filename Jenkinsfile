@@ -23,6 +23,7 @@ pipeline {
       steps {
 script {
             sh '''   
+         sudo apt update
          sudo apt install npm -y
          sudo npm cache clean -f
          sudo npm install -g n
