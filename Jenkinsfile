@@ -92,7 +92,7 @@ echo "[Unit]
     script {
         sh '''
         sudo apt install mysql-client-core-8.0 -y
-        sudo mysql -h database-1.c70tf8bcpfzd.us-east-1.rds.amazonaws.com -u admin -padmin123 <<eof
+        sudo mysql -h database-1.cdco6ac0ygle.ap-south-1.rds.amazonaws.com -u admin -padmin123 <<eof
         Create database ems;
         GRANT ALL PRIVILEGES ON ems.* TO 'admin'@'%' WITH GRANT OPTION;
         FLUSH PRIVILEGES;
