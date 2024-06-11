@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        public_ip = sh(script: 'curl -s http://ifconfig.me/ip', returnStdout: true).trim()
+        }
    
     stages {
         stage('Checkout') {
@@ -36,8 +38,7 @@ steps {
         sh '''
          cd react-hooks-frontend/src/services 
     public_ip=$(curl -s http://ifconfig.me/ip)
-
-    sudo perl -pi -e 's/localhost/$public_ip/g' EmployeeService.js
+    sudo perl -pi -e 's/localhost/${env.public_ip}/g' EmployeeService.js
     
     npm install
     npm run build
