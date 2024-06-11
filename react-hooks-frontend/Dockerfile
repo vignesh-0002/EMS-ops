@@ -1,14 +1,21 @@
-# Use a base image with Java and Maven installed
-FROM maven:3.8.4-openjdk-17
+# Use a base image with Node.js installed
+FROM node:14-alpine
 
 # Set the working directory in the container
-WORKDIR /springboot-backend/
+WORKDIR /react-hooks-frontend/
 
-# Copy the compiled JAR file from the build stage
-COPY target/springboot-backend-0.0.1-SNAPSHOT.jar springboot-backend.jar
+# Copy package.json 
+COPY package*.json ./
 
-# Expose the port on which the Spring Boot application will run
-EXPOSE 8080
+# Install dependencies
+RUN npm install
+
+# Copy the source code
+COPY . .
+
+# Expose port 3000
+EXPOSE 3000
 
 # Command to run
-ENTRYPOINT ["java", "-jar", "springboot-backend.jar"]
+ENTRYPOINT ["npm","start"]
+
