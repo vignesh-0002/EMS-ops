@@ -205,6 +205,7 @@ script {
                 docker --version
                 ls
                 pwd
+                docker-compose up -d
     '''
         }
 }
