@@ -41,7 +41,7 @@ steps {
         sh '''
          cd react-hooks-frontend/src/services 
     public_ip=$(curl -s http://ifconfig.me/ip)
-    sudo perl -pi -e 's/localhost/65.1.91.17/g' EmployeeService.js
+    sudo perl -pi -e 's/localhost/13.234.10.17/g' EmployeeService.js
     
     npm install
     npm run build
