@@ -205,6 +205,11 @@ script {
                 docker --version
                 ls
                 pwd
+                sudo apt-get update
+                sudo apt-get install docker-compose-plugin
+                sudo groupadd docker
+                sudo usermod -aG docker $USER
+                newgrp docker
                 docker-compose up -d
     '''
         }
