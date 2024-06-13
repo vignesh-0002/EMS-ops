@@ -17,7 +17,7 @@ services:
     ports:
       - "9080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://database-1.c70tf8bcpfzd.us-east-1.rds.amazonaws.com:3306/your-database-name
+      - SPRING_DATASOURCE_URL=jdbc:mysql://database-1.cdco6ac0ygle.ap-south-1.rds.amazonaws.com:3306/your-database-name
       - SPRING_DATASOURCE_USERNAME=admin
       - SPRING_DATASOURCE_PASSWORD=admin123
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
