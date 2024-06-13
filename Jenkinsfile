@@ -209,8 +209,9 @@ script {
                 sudo apt-get install docker-compose-plugin
                 sudo groupadd docker
                 sudo usermod -aG docker $USER
-                newgrp docker
-                docker-compose up -d
+                sudo newgrp docker
+                sudo docker network create ems-ops
+                sudo docker-compose up -d
     '''
         }
 }
