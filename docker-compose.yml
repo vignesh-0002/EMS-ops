@@ -1,4 +1,4 @@
-version: '3.8'
+  version: '3.8'
 
 services:
   frontend:
@@ -9,20 +9,42 @@ services:
       - "5000:3000"
     depends_on:
       - backend
+    networks:
+      - ems-ops
 
   backend:
     build:
       context: ./springboot-backend
       dockerfile: Dockerfile
     ports:
-      - "9080:8080"
+      - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://database-1.cdco6ac0ygle.ap-south-1.rds.amazonaws.com:3306/your-database-name
-      - SPRING_DATASOURCE_USERNAME=admin
-      - SPRING_DATASOURCE_PASSWORD=admin123
+      - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/ems?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=username
+      - SPRING_DATASOURCE_PASSWORD=password
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - database
+    networks:
+      - ems-ops
+
+  database:
+    image: mysql:8.0
+    container_name: mysql_container
+    ports:
+      - "3307:3306"  # Expose MySQL port
+    environment:
+      MYSQL_ROOT_PASSWORD: password  # Set root password
+      MYSQL_DATABASE: ems                # Optionally initialize the ems database
+    volumes:
+      - db_data:/var/lib/mysql            # Persistent storage
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Mount init.sql file
+    networks:
+      - ems-ops
+
+volumes:
+  db_data:
 
 networks:
-  default:
-    external:
-      name: ems-ops
+  ems-ops:
+    external: true
