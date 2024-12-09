@@ -4,7 +4,7 @@ FROM node:14-alpine
 # Set the working directory in the container
 WORKDIR /react-hooks-frontend/
 
-# Copy package.json 
+# Copy package.json
 COPY package*.json ./
 
 # Install dependencies
