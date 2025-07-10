@@ -1,0 +1,221 @@
+{
+    "service": {
+        "serviceArn": "arn:aws:ecs:us-east-1:438465168997:service/EMSOPS/EMSOPSBE",
+        "serviceName": "EMSOPSBE",
+        "clusterArn": "arn:aws:ecs:us-east-1:438465168997:cluster/EMSOPS",
+        "loadBalancers": [],
+        "serviceRegistries": [],
+        "status": "ACTIVE",
+        "desiredCount": 1,
+        "runningCount": 0,
+        "pendingCount": 0,
+        "capacityProviderStrategy": [
+            {
+                "capacityProvider": "FARGATE",
+                "weight": 1,
+                "base": 0
+            }
+        ],
+        "platformVersion": "LATEST",
+        "platformFamily": "Linux",
+        "taskDefinition": "arn:aws:ecs:us-east-1:438465168997:task-definition/emsops-task:4",
+        "deploymentConfiguration": {
+            "deploymentCircuitBreaker": {
+                "enable": true,
+                "rollback": true
+            },
+            "maximumPercent": 200,
+            "minimumHealthyPercent": 100,
+            "alarms": {
+                "alarmNames": [],
+                "rollback": false,
+                "enable": false
+            }
+        },
+        "deployments": [
+            {
+                "id": "ecs-svc/9061737970879287545",
+                "status": "PRIMARY",
+                "taskDefinition": "arn:aws:ecs:us-east-1:438465168997:task-definition/emsops-task:4",
+                "desiredCount": 0,
+                "pendingCount": 0,
+                "runningCount": 0,
+                "failedTasks": 0,
+                "createdAt": "2025-03-16T17:46:13.166000+00:00",
+                "updatedAt": "2025-03-16T17:46:13.166000+00:00",
+                "capacityProviderStrategy": [
+                    {
+                        "capacityProvider": "FARGATE",
+                        "weight": 1,
+                        "base": 0
+                    }
+                ],
+                "platformVersion": "1.4.0",
+                "platformFamily": "Linux",
+                "networkConfiguration": {
+                    "awsvpcConfiguration": {
+                        "subnets": [
+                            "subnet-06aafa07cecff6391",
+                            "subnet-08aa17a855a855202",
+                            "subnet-036ee587b6816bf88",
+                            "subnet-086cfd4ecd81ca94d",
+                            "subnet-0393724a838283392",
+                            "subnet-074b78a71de6516db",
+                            "subnet-084afd8f2aecabe17",
+                            "subnet-0b2827739ed6d8c56",
+                            "subnet-0f3a03e7ed6b9d4d0",
+                            "subnet-049c098f5a130ab7a",
+                            "subnet-017637a26f5241ffd"
+                        ],
+                        "securityGroups": [
+                            "sg-052e7d0982f25afcb"
+                        ],
+                        "assignPublicIp": "ENABLED"
+                    }
+                },
+                "rolloutState": "IN_PROGRESS",
+                "rolloutStateReason": "ECS deployment ecs-svc/9061737970879287545 in progress."
+            },
+            {
+                "id": "ecs-svc/4810076705084181902",
+                "status": "ACTIVE",
+                "taskDefinition": "arn:aws:ecs:us-east-1:438465168997:task-definition/emsops-task:4",
+                "desiredCount": 1,
+                "pendingCount": 0,
+                "runningCount": 0,
+                "failedTasks": 3,
+                "createdAt": "2025-03-16T17:36:58.683000+00:00",
+                "updatedAt": "2025-03-16T17:42:05.717000+00:00",
+                "capacityProviderStrategy": [
+                    {
+                        "capacityProvider": "FARGATE",
+                        "weight": 1,
+                        "base": 0
+                    }
+                ],
+                "platformVersion": "1.4.0",
+                "platformFamily": "Linux",
+                "networkConfiguration": {
+                    "awsvpcConfiguration": {
+                        "subnets": [
+                            "subnet-06aafa07cecff6391",
+                            "subnet-08aa17a855a855202",
+                            "subnet-036ee587b6816bf88",
+                            "subnet-086cfd4ecd81ca94d",
+                            "subnet-0393724a838283392",
+                            "subnet-074b78a71de6516db",
+                            "subnet-084afd8f2aecabe17",
+                            "subnet-0b2827739ed6d8c56",
+                            "subnet-0f3a03e7ed6b9d4d0",
+                            "subnet-049c098f5a130ab7a",
+                            "subnet-017637a26f5241ffd"
+                        ],
+                        "securityGroups": [
+                            "sg-052e7d0982f25afcb"
+                        ],
+                        "assignPublicIp": "ENABLED"
+                    }
+                },
+                "rolloutState": "FAILED",
+                "rolloutStateReason": "ECS deployment circuit breaker: tasks failed to start."
+            }
+        ],
+        "roleArn": "arn:aws:iam::438465168997:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+        "events": [
+            {
+                "id": "bbb81122-dd78-4559-9dcb-f2ed90890edb",
+                "createdAt": "2025-03-16T17:42:05.727000+00:00",
+                "message": "(service EMSOPSBE) (deployment ecs-svc/4810076705084181902) deployment failed: tasks failed to start."
+            },
+            {
+                "id": "2a45b7b8-f534-4c4e-aa8a-c35313777df3",
+                "createdAt": "2025-03-16T17:41:47.425000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task e8f478b9184f416d9701c855b509d2e8)."
+            },
+            {
+                "id": "2621e2b2-d641-4d44-ae04-c1e038604949",
+                "createdAt": "2025-03-16T17:40:15.433000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task 43d766ee9d584747a3a77e126cd24690)."
+            },
+            {
+                "id": "06ef94b6-e6e6-4a7f-abc4-555418e353d1",
+                "createdAt": "2025-03-16T17:38:43.474000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task c64c14b72c274756ba9e56d2c809e129)."
+            },
+            {
+                "id": "38b9e60d-4b08-48fc-a708-9d8598d1d73d",
+                "createdAt": "2025-03-16T17:37:10.479000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task 1362a4d040de436c95a9d871f2b1fef5)."
+            },
+            {
+                "id": "bb15d63f-0437-43d2-89c0-e30fe9c2c145",
+                "createdAt": "2025-03-16T16:28:58.516000+00:00",
+                "message": "(service EMSOPSBE) (deployment ecs-svc/5591652302326557694) deployment failed: tasks failed to start."
+            },
+            {
+                "id": "93771820-11bb-498f-b2e5-a268e1ec2d3d",
+                "createdAt": "2025-03-16T16:27:46.736000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task 986549930061468d9df2185ebecc4bb6)."
+            },
+            {
+                "id": "37a4234b-a1c2-44a7-acc5-886d5665d59e",
+                "createdAt": "2025-03-16T16:26:46.865000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task e52ab4f69cd442f6b4d15b8791709e9a)."
+            },
+            {
+                "id": "200a142b-6220-4309-beaa-685653027f24",
+                "createdAt": "2025-03-16T16:23:11.120000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task 3c5dcf2ff5b542aab35d3d601111d2d9)."
+            },
+            {
+                "id": "9aac7332-92a9-4aac-be94-f5b76cefde52",
+                "createdAt": "2025-03-16T16:22:10.606000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task 2ad5e9cb03874845bf74cffa98308fab)."
+            },
+            {
+                "id": "e6235d5f-f1cc-4be4-a7b6-0680f3bd287a",
+                "createdAt": "2025-03-16T16:21:29.814000+00:00",
+                "message": "(service EMSOPSBE) has started 1 tasks: (task 80b85b1ae67f4afd94cfcf69a640261c)."
+            },
+            {
+                "id": "4731d209-0a65-41ee-9fb9-52fb373f23d0",
+                "createdAt": "2025-03-16T16:15:23.514000+00:00",
+                "message": "(service EMSOPSBE) failed to launch a task with (error ECS was unable to assume the role 'arn:aws:iam::438465168997:role/ecsTaskExecutionRole' that was provided for this task. Please verify that the role being passed has the proper trust relationship and permissions and that your IAM user has permissions to pass this role.)."
+            }
+        ],
+        "createdAt": "2025-03-16T16:15:05.017000+00:00",
+        "placementConstraints": [],
+        "placementStrategy": [],
+        "networkConfiguration": {
+            "awsvpcConfiguration": {
+                "subnets": [
+                    "subnet-06aafa07cecff6391",
+                    "subnet-08aa17a855a855202",
+                    "subnet-036ee587b6816bf88",
+                    "subnet-086cfd4ecd81ca94d",
+                    "subnet-0393724a838283392",
+                    "subnet-074b78a71de6516db",
+                    "subnet-084afd8f2aecabe17",
+                    "subnet-0b2827739ed6d8c56",
+                    "subnet-0f3a03e7ed6b9d4d0",
+                    "subnet-049c098f5a130ab7a",
+                    "subnet-017637a26f5241ffd"
+                ],
+                "securityGroups": [
+                    "sg-052e7d0982f25afcb"
+                ],
+                "assignPublicIp": "ENABLED"
+            }
+        },
+        "healthCheckGracePeriodSeconds": 0,
+        "schedulingStrategy": "REPLICA",
+        "deploymentController": {
+            "type": "ECS"
+        },
+        "createdBy": "arn:aws:iam::438465168997:root",
+        "enableECSManagedTags": true,
+        "propagateTags": "NONE",
+        "enableExecuteCommand": false,
+        "availabilityZoneRebalancing": "ENABLED"
+    }
+}
