@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./react-hooks-frontend
+      dockerfile: Dockerfile
+    image: 438465168997.dkr.ecr.us-east-1.amazonaws.com/emsops/vignesh-frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://EMSOPS-1240663236.us-east-1.elb.amazonaws.com
